@@ -1,0 +1,32 @@
+{
+  "name": "csv_4180",
+  "version": "0.1.0",
+  "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; in typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StoneCypher/csv_4180.git"
+  },
+  "keywords": [
+    "csv",
+    "4180",
+    "rfc4180",
+    "rfc-4180",
+    "tsv",
+    "comma",
+    "separated",
+    "values",
+    "seperated",
+    "tab",
+    "comma-separated-values"
+  ],
+  "author": "John Haugeland <stonecypher@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StoneCypher/csv_4180/issues"
+  },
+  "homepage": "https://github.com/StoneCypher/csv_4180#readme"
+}
