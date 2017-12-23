@@ -9,7 +9,7 @@
     "typescript": "tsc",
     "nyc": "nyc ava build/tests/*.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "npm run nyc",
+    "test": "npm run eslint && npm run nyc",
     "build": "npm run clean && npm run typescript && npm run test",
     "travis": "npm run coverage"
   },
