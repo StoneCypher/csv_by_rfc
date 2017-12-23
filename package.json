@@ -1,17 +1,18 @@
 {
   "name": "csv_4180",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; in typescript",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf -f build && rimraf -f dist",
+    "clean": "rimraf -f build && rimraf -f dist && rimraf -f docs",
     "eslint": "eslint src/ts/**/*.ts",
     "typescript": "tsc",
     "nyc": "nyc ava build/tests/*.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "npm run eslint && npm run nyc",
     "dist": "mkdir dist && cp build/to_csv.* dist",
-    "build": "npm run clean && npm run typescript && npm run test && npm run dist",
+    "doc": "typedoc --out docs/docs/ src/ts/to_csv.ts",
+    "build": "npm run clean && npm run typescript && npm run test && npm run doc && npm run dist",
     "travis": "npm run coverage"
   },
   "repository": {
@@ -54,6 +55,7 @@
     "eslint-plugin-unicorn": "^3.0.1",
     "nyc": "^11.4.1",
     "rimraf": "^2.6.2",
+    "typedoc": "^0.9.0",
     "typescript": "^2.6.2"
   },
   "dependencies": {
