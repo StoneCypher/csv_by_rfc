@@ -13,6 +13,31 @@ describe('stringify', async it => {
     stringify([['a','b','c'],['1','2','3']])
   ) );
 
+  it("embedded cr", t => t.is(
+    'a,"b\rc",d\r\n1,2,3',
+    stringify([['a','b\rc','d'],['1','2','3']])
+  ) );
+
+  it("embedded nl", t => t.is(
+    'a,"b\nc",d\r\n1,2,3',
+    stringify([['a','b\nc','d'],['1','2','3']])
+  ) );
+
+  it("embedded crnl", t => t.is(
+    'a,"b\r\nc",d\r\n1,2,3',
+    stringify([['a','b\r\nc','d'],['1','2','3']])
+  ) );
+
+  it("embedded quote", t => t.is(
+    'a,"b""c",d\r\n1,2,3',
+    stringify([['a','b"c','d'],['1','2','3']])
+  ) );
+
+  it("embedded twoquote", t => t.is(
+    'a,"b""""c",d\r\n1,2,3',
+    stringify([['a','b""c','d'],['1','2','3']])
+  ) );
+
   it("with quoter", t => t.is(
     '"a","b","c"\r\n"1","2","3"',
     stringify(
