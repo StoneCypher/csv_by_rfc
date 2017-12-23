@@ -1,6 +1,6 @@
 {
   "name": "csv_4180",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; in typescript",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
   "devDependencies": {
     "ava": "^0.24.0",
     "ava-spec": "^1.1.1",
+    "coveralls": "^3.0.0",
     "eslint": "^4.13.1",
     "eslint-config-stonecypher": "^1.15.7",
     "eslint-plugin-ava": "^4.4.0",
