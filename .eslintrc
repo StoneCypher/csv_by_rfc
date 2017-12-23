@@ -1,0 +1,17 @@
+{
+
+  "parser"        : "typescript-eslint-parser",
+  "parserOptions" : {
+    "ecmaVersion"  : 6,
+    "sourceType"   : "module",
+    "ecmaFeatures" : {
+      "modules"    : true
+    }
+  },
+
+  "plugins" : [ ],
+  "env"     : { "es6": true, "commonjs": true },
+
+  "extends" : "eslint-config-stonecypher"
+
+}

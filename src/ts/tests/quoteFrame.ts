@@ -1,6 +1,6 @@
 
-import {test, describe} from 'ava-spec';
-import {quoteFrame}     from '../to_csv';
+import {describe}   from 'ava-spec';
+import {quoteFrame} from '../to_csv';
 
 
 
