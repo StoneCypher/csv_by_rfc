@@ -4,7 +4,11 @@
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; in typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf -f build",
+    "typescript": "tsc",
+    "ava": "ava build/tests/*.js",
+    "test": "npm run ava",
+    "build": "npm run clean && npm run typescript && npm run test"
   },
   "repository": {
     "type": "git",
@@ -28,5 +32,11 @@
   "bugs": {
     "url": "https://github.com/StoneCypher/csv_4180/issues"
   },
-  "homepage": "https://github.com/StoneCypher/csv_4180#readme"
+  "homepage": "https://github.com/StoneCypher/csv_4180#readme",
+  "devDependencies": {
+    "ava": "^0.24.0",
+    "ava-spec": "^1.1.1",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.6.2"
+  }
 }
