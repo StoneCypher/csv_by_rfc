@@ -49,4 +49,12 @@ function quoteStrictNL(c: string): string {
 
 
 
-export { quoteFrame, quoteAlways, quoteMinimal, quoteStrictNL };
+function quoteExceptNumbers(c: string): string {
+  return /^[0-9.+-]*$/.test(c)? c : quoteFrame(c);
+}
+
+
+
+
+
+export { quoteFrame, quoteAlways, quoteMinimal, quoteStrictNL, quoteExceptNumbers };

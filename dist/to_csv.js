@@ -18,4 +18,8 @@ function quoteStrictNL(c) {
     return quoteWhenContains(c, ['\r\n', ',', '"']);
 }
 exports.quoteStrictNL = quoteStrictNL;
+function quoteExceptNumbers(c) {
+    return /^[0-9.+-]*$/.test(c) ? c : quoteFrame(c);
+}
+exports.quoteExceptNumbers = quoteExceptNumbers;
 //# sourceMappingURL=to_csv.js.map
