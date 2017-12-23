@@ -5,7 +5,7 @@ type doc  = row[];
 
 
 
-enum headerMode {
+enum header_mode {
 
   none   = 'none',
   index  = 'index',
@@ -16,7 +16,7 @@ enum headerMode {
 
 
 
-enum quotingCircumstance {
+enum quoting_circumstance {
 
   minimal        = 'minimal',
   always         = 'always',
@@ -27,7 +27,7 @@ enum quotingCircumstance {
 
 
 
-interface stringifyOptions {
+interface stringify_options {
 
   headers?                : row | false,
   quoter?                 : (s: string) => string,
@@ -40,4 +40,4 @@ interface stringifyOptions {
 
 
 
-export { item, row, doc, headerMode, quotingCircumstance, stringifyOptions };
+export { item, row, doc, header_mode, quoting_circumstance, stringify_options };
