@@ -1,1 +1,1 @@
-{"version":3,"file":"csv_types.js","sourceRoot":"","sources":["../src/ts/csv_types.ts"],"names":[],"mappings":""}
+{"version":3,"file":"csv_types.js","sourceRoot":"","sources":["../src/ts/csv_types.ts"],"names":[],"mappings":";;AACA,IAAK,mBAKJ;AALD,WAAK,mBAAmB;IACtB,0CAAqB,CAAA;IACrB,wCAAoB,CAAA;IACpB,0CAAqB,CAAA;IACrB,8CAAuB,CAAA;AACzB,CAAC,EALI,mBAAmB,KAAnB,mBAAmB,QAKvB;AAIQ,kDAAmB;AAJ3B,CAAC"}
