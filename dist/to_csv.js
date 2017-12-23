@@ -113,6 +113,8 @@ exports.stringify_make_row = stringify_make_row;
  *
  * Converts Javascript array data to CSV string data.
  *
+ * This is the module's main method.  Almost all use of this module should be through this method.
+ *
  * ## Basic usage
  *
  * The module is pre-loaded with sensible defaults; as a result, generally it's good enough to just call this with your
@@ -141,9 +143,6 @@ exports.stringify_make_row = stringify_make_row;
  * ## Configuration
  *
  * whargarbl todo
- *
- * This is the module's main method, and is what the owner module exports as `.to(...)`.  Almost all use of this module
- * should be through this method (albeit generally under the alias.)
  *
  * @param data                   The CSV's dataset
  * @param headers                An array of strings to be used as the header row
