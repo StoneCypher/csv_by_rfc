@@ -16,7 +16,8 @@ const quoteFrame = (s: string): string =>
 
 const quoteWhenContains = (s: string, conts: Array<string>): string => {
 
-  return (conts.some( (d:any) => s.includes(d) ))? quoteFrame(s) : s;
+  const hasAnyItem = conts.some( (d: string) => s.includes(d) );
+  return hasAnyItem? quoteFrame(s) : s;
 
 };
 
@@ -24,11 +25,28 @@ const quoteWhenContains = (s: string, conts: Array<string>): string => {
 
 
 
-const quoteAlways  = (c: string): string => quoteFrame(c),
-      quoteMinimal = (c: string): string => quoteWhenContains(c, ['\r', '\n', ',', '"']);
+function quoteAlways(c: string): string {
+  return quoteFrame(c);
+}
 
 
 
 
 
-export { quoteFrame, quoteAlways, quoteMinimal };
+function quoteMinimal(c: string): string {
+  return quoteWhenContains(c, ['\r', '\n', ',', '"']);
+}
+
+
+
+
+
+function quoteStrictNL(c: string): string {
+  return quoteWhenContains(c, ['\r\n',     ',', '"']);
+}
+
+
+
+
+
+export { quoteFrame, quoteAlways, quoteMinimal, quoteStrictNL };
