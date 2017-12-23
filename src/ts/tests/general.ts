@@ -1,7 +1,6 @@
-import test from 'ava';
 
-const fn = async () => Promise.resolve('foo');
+import {test, describe} from 'ava-spec';
 
-test(async (t) => {
-  t.is(await fn(), 'foo');
+describe('Tests', async it => {
+  it('are running', t => t.is(1, 1) );
 });

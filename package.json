@@ -1,14 +1,16 @@
 {
   "name": "csv_4180",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; in typescript",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf -f build",
     "typescript": "tsc",
-    "ava": "ava build/tests/*.js",
-    "test": "npm run ava",
-    "build": "npm run clean && npm run typescript && npm run test"
+    "nyc": "nyc ava build/tests/*.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "npm run nyc",
+    "build": "npm run clean && npm run typescript && npm run test",
+    "travis": "npm run coverage"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
   "devDependencies": {
     "ava": "^0.24.0",
     "ava-spec": "^1.1.1",
+    "nyc": "^11.4.1",
     "rimraf": "^2.6.2",
     "typescript": "^2.6.2"
   }

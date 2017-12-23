@@ -8,9 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ava_1 = require("ava");
-const fn = () => __awaiter(this, void 0, void 0, function* () { return Promise.resolve('foo'); });
-ava_1.default((t) => __awaiter(this, void 0, void 0, function* () {
-    t.is(yield fn(), 'foo');
+const ava_spec_1 = require("ava-spec");
+ava_spec_1.describe('Tests', (it) => __awaiter(this, void 0, void 0, function* () {
+    it('are running', t => t.is(1, 1));
 }));
 //# sourceMappingURL=general.js.map

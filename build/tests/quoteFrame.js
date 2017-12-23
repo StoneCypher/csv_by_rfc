@@ -8,9 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ava_1 = require("ava");
-const fn = () => __awaiter(this, void 0, void 0, function* () { return Promise.resolve('foo'); });
-ava_1.default((t) => __awaiter(this, void 0, void 0, function* () {
-    t.is(yield fn(), 'foo');
+const ava_spec_1 = require("ava-spec");
+const to_csv_1 = require("../to_csv");
+ava_spec_1.describe('quoteFrame', (it) => __awaiter(this, void 0, void 0, function* () {
+    it('a', t => t.is('"a"', to_csv_1.quoteFrame('a')));
+    it('b"c', t => t.is('"b""c"', to_csv_1.quoteFrame('b"c')));
+    it('"d"', t => t.is('"""d"""', to_csv_1.quoteFrame('"d"')));
+    it('""e""', t => t.is('"""""e"""""', to_csv_1.quoteFrame('""e""')));
 }));
-//# sourceMappingURL=general.js.map
+//# sourceMappingURL=quoteFrame.js.map
