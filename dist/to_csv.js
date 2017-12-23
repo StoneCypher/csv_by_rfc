@@ -2,9 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /***
  *
+ * Perform a quoting
  *
+ * @param s The cell string data
  *
- * @param
+ * @returns The string provided, quoted
  *
  */
 function quote_frame(s) {
@@ -13,9 +15,12 @@ function quote_frame(s) {
 exports.quote_frame = quote_frame;
 /***
  *
+ * Quoting metafunction that handles quoting given an array of triggers
  *
+ * @param s     The cell string data
+ * @param conts An array of trigger strings
  *
- * @param
+ * @returns The string provided, quoted when containing anything from `conts`
  *
  */
 function quote_when_contains(s, conts) {
@@ -25,9 +30,11 @@ function quote_when_contains(s, conts) {
 exports.quote_when_contains = quote_when_contains;
 /***
  *
+ * Quote every cell
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted
  *
  */
 function quote_always(c) {
@@ -36,9 +43,11 @@ function quote_always(c) {
 exports.quote_always = quote_always;
 /***
  *
+ * Quote only that which needs to be quoted (strings containing `",\r\n`)
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted when containing `"`, `,`, `\r`, or `\n`
  *
  */
 function quote_minimal(c) {
@@ -47,24 +56,29 @@ function quote_minimal(c) {
 exports.quote_minimal = quote_minimal;
 /***
  *
+ * Quote only that which needs to be quoted.  Pass carriage returns and newlines individually without quoting (which is
+ * strictly correct, but which few parsers will handle correctly.)
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted when containing `"`, `,`, or `\r\n`
  *
  */
-function quote_strict_nl(c) {
-    return quote_when_contains(c, ['\r\n', ',', '"']);
+function quote_strict_nl(cell) {
+    return quote_when_contains(cell, ['\r\n', ',', '"']);
 }
 exports.quote_strict_nl = quote_strict_nl;
 /***
  *
+ * Quote things which do not appear to be numbers (that is, which contain characters other than 0-9, period, + and -.)
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted if not believed to be a number
  *
  */
-function quote_except_numbers(c) {
-    return /^[0-9.+-]*$/.test(c) ? c : quote_frame(c);
+function quote_except_numbers(cell) {
+    return /^[0-9.+-]*$/.test(cell) ? cell : quote_frame(cell);
 }
 exports.quote_except_numbers = quote_except_numbers;
 /***

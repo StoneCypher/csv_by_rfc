@@ -8,9 +8,11 @@ import { item, row, doc, header_mode, quoting_circumstance, stringify_options } 
 
 /***
  *
+ * Perform a quoting
  *
+ * @param s The cell string data
  *
- * @param
+ * @returns The string provided, quoted
  *
  */
 
@@ -25,9 +27,12 @@ function quote_frame(s: string): string {
 
 /***
  *
+ * Quoting metafunction that handles quoting given an array of triggers
  *
+ * @param s     The cell string data
+ * @param conts An array of trigger strings
  *
- * @param
+ * @returns The string provided, quoted when containing anything from `conts`
  *
  */
 
@@ -45,9 +50,11 @@ function quote_when_contains(s: string, conts: Array<string>): string {
 
 /***
  *
+ * Quote every cell
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted
  *
  */
 
@@ -62,9 +69,11 @@ function quote_always(c: string): string {
 
 /***
  *
+ * Quote only that which needs to be quoted (strings containing `",\r\n`)
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted when containing `"`, `,`, `\r`, or `\n`
  *
  */
 
@@ -79,14 +88,17 @@ function quote_minimal(c: string): string {
 
 /***
  *
+ * Quote only that which needs to be quoted.  Pass carriage returns and newlines individually without quoting (which is
+ * strictly correct, but which few parsers will handle correctly.)
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted when containing `"`, `,`, or `\r\n`
  *
  */
 
-function quote_strict_nl(c: string): string {
-  return quote_when_contains(c, ['\r\n',     ',', '"']);
+function quote_strict_nl(cell: string): string {
+  return quote_when_contains(cell, ['\r\n', ',', '"']);
 }
 
 
@@ -95,14 +107,16 @@ function quote_strict_nl(c: string): string {
 
 /***
  *
+ * Quote things which do not appear to be numbers (that is, which contain characters other than 0-9, period, + and -.)
  *
+ * @param cell The cell data
  *
- * @param
+ * @returns The string provided, quoted if not believed to be a number
  *
  */
 
-function quote_except_numbers(c: string): string {
-  return /^[0-9.+-]*$/.test(c)? c : quote_frame(c);
+function quote_except_numbers(cell: string): string {
+  return /^[0-9.+-]*$/.test(cell)? cell : quote_frame(cell);
 }
 
 

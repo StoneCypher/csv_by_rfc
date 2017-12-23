@@ -104,10 +104,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L54">to_csv.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L61">to_csv.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Quote every cell</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -116,6 +119,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The string provided, quoted</p>
 						</li>
 					</ul>
 				</section>
@@ -123,24 +127,31 @@
 					<a name="quote_except_numbers" class="tsd-anchor"></a>
 					<h3>quote_<wbr>except_<wbr>numbers</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">quote_<wbr>except_<wbr>numbers<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">quote_<wbr>except_<wbr>numbers<span class="tsd-signature-symbol">(</span>cell<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L104">to_csv.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L118">to_csv.ts:118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Quote things which do not appear to be numbers (that is, which contain characters other than 0-9, period, + and -.)</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>c: <span class="tsd-signature-type">string</span></h5>
+									<h5>cell: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The cell data</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The string provided, quoted if not believed to be a number</p>
 						</li>
 					</ul>
 				</section>
@@ -154,18 +165,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L17">to_csv.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L19">to_csv.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Perform a quoting</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>s: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The cell string data</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The string provided, quoted</p>
 						</li>
 					</ul>
 				</section>
@@ -179,10 +197,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L71">to_csv.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L80">to_csv.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Quote only that which needs to be quoted (strings containing <code>&quot;,\r\n</code>)</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -191,6 +212,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The string provided, quoted when containing <code>&quot;</code>, <code>,</code>, <code>\r</code>, or <code>\n</code></p>
 						</li>
 					</ul>
 				</section>
@@ -198,24 +220,32 @@
 					<a name="quote_strict_nl" class="tsd-anchor"></a>
 					<h3>quote_<wbr>strict_<wbr>nl</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">quote_<wbr>strict_<wbr>nl<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">quote_<wbr>strict_<wbr>nl<span class="tsd-signature-symbol">(</span>cell<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L88">to_csv.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L100">to_csv.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Quote only that which needs to be quoted.  Pass carriage returns and newlines individually without quoting (which is
+									strictly correct, but which few parsers will handle correctly.)</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>c: <span class="tsd-signature-type">string</span></h5>
+									<h5>cell: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The cell data</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The string provided, quoted when containing <code>&quot;</code>, <code>,</code>, or <code>\r\n</code></p>
 						</li>
 					</ul>
 				</section>
@@ -229,21 +259,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L34">to_csv.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L39">to_csv.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Quoting metafunction that handles quoting given an array of triggers</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>s: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The cell string data</p>
+									</div>
 								</li>
 								<li>
 									<h5>conts: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of trigger strings</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The string provided, quoted when containing anything from <code>conts</code></p>
 						</li>
 					</ul>
 				</section>
@@ -257,7 +297,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L134">to_csv.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L148">to_csv.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -327,7 +367,7 @@ stringify_make_row([<span class="hljs-number">4</span>,<span class="hljs-number"
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L194">to_csv.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L208">to_csv.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -431,7 +471,7 @@ stringify_make_row([<span class="hljs-number">4</span>,<span class="hljs-number"
 					<div class="tsd-signature tsd-kind-icon">quoters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L222">to_csv.ts:222</a></li>
+							<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L236">to_csv.ts:236</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -440,7 +480,7 @@ stringify_make_row([<span class="hljs-number">4</span>,<span class="hljs-number"
 						<div class="tsd-signature tsd-kind-icon">always<span class="tsd-signature-symbol">:</span> <a href="_to_csv_.html#quote_always" class="tsd-signature-type">quote_always</a><span class="tsd-signature-symbol"> =&nbsp;quote_always</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L225">to_csv.ts:225</a></li>
+								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L239">to_csv.ts:239</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -450,7 +490,7 @@ stringify_make_row([<span class="hljs-number">4</span>,<span class="hljs-number"
 						<div class="tsd-signature tsd-kind-icon">except_<wbr>numbers<span class="tsd-signature-symbol">:</span> <a href="_to_csv_.html#quote_except_numbers" class="tsd-signature-type">quote_except_numbers</a><span class="tsd-signature-symbol"> =&nbsp;quote_except_numbers</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L226">to_csv.ts:226</a></li>
+								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L240">to_csv.ts:240</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -460,7 +500,7 @@ stringify_make_row([<span class="hljs-number">4</span>,<span class="hljs-number"
 						<div class="tsd-signature tsd-kind-icon">minimal<span class="tsd-signature-symbol">:</span> <a href="_to_csv_.html#quote_minimal" class="tsd-signature-type">quote_minimal</a><span class="tsd-signature-symbol"> =&nbsp;quote_minimal</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L224">to_csv.ts:224</a></li>
+								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L238">to_csv.ts:238</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -470,7 +510,7 @@ stringify_make_row([<span class="hljs-number">4</span>,<span class="hljs-number"
 						<div class="tsd-signature tsd-kind-icon">strict_<wbr>nl<span class="tsd-signature-symbol">:</span> <a href="_to_csv_.html#quote_strict_nl" class="tsd-signature-type">quote_strict_nl</a><span class="tsd-signature-symbol"> =&nbsp;quote_strict_nl</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/5be1e35/src/ts/to_csv.ts#L227">to_csv.ts:227</a></li>
+								<li>Defined in <a href="https://github.com/StoneCypher/csv_4180/blob/daef288/src/ts/to_csv.ts#L241">to_csv.ts:241</a></li>
 							</ul>
 						</aside>
 					</section>
