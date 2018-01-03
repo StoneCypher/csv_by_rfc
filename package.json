@@ -1,6 +1,6 @@
 {
   "name": "csv_4180",
-  "version": "0.14.2",
+  "version": "0.14.3",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; typed in typescript",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "npm run eslint && npm run nyc",
     "dist": "mkdir dist && cp build/to_csv.* dist",
-    "doc": "typedoc --out docs/docs/ src/ts/to_csv.ts && cp src/misc/.nojekyll docs",
+    "doc": "typedoc --out docs/docs/ src/ts/index.ts && cp src/misc/.nojekyll docs",
     "build": "npm run clean && npm run typescript && npm run test && npm run doc && npm run dist",
     "travis": "npm run coverage"
   },
