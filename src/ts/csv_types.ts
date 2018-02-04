@@ -12,7 +12,7 @@ enum header_mode {
   number = 'number',
   first  = 'first'
 
-};
+}
 
 
 
@@ -23,7 +23,7 @@ enum quoting_circumstance {
   except_numbers = 'except_numbers',
   strict_nl      = 'strict_nl'
 
-};
+}
 
 
 
