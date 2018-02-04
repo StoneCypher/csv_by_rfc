@@ -14,4 +14,8 @@
 
   "extends" : "eslint-config-stonecypher",
 
+  "rules"   : {
+    "no-undef": 0
+  }
+
 }
