@@ -8,7 +8,7 @@
     "eslint": "eslint src/ts/**/*.ts",
     "typescript": "tsc",
     "nyc": "nyc ava build/tests/*.js",
-    "test": "jest",
+    "test": "jest --color --verbose",
     "dist": "mkdir dist && cp build/to_csv.* dist",
     "doc": "typedoc --out docs/docs/ src/ts/index.ts && cp src/misc/.nojekyll docs",
     "build": "npm run clean && npm run lint && npm run test && npm run typescript && npm run doc && npm run dist",
