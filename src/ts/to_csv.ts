@@ -12,7 +12,7 @@ import {
   doc,
 
   header_mode,
-  quoting_circumstance,
+  quote_when,
 
   stringify_options
 

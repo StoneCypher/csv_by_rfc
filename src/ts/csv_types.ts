@@ -5,6 +5,8 @@ type doc  = row[];
 
 
 
+
+
 enum header_mode {
 
   none   = 'none',
@@ -16,7 +18,7 @@ enum header_mode {
 
 
 
-enum quoting_circumstance {
+enum quote_when {
 
   minimal        = 'minimal',
   always         = 'always',
@@ -40,4 +42,4 @@ interface stringify_options {
 
 
 
-export { item, row, doc, header_mode, quoting_circumstance, stringify_options };
+export { item, row, doc, header_mode, quote_when, stringify_options };
