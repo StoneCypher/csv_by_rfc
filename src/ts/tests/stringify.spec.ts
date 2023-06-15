@@ -1,6 +1,11 @@
 
-import { to_csv }       from '../index';
-import { quote_always } from '../to_csv';
+import { to_csv } from '../index';
+import { 
+  quote_always,
+  quote_minimal,
+  quote_strict_nl,
+  quote_except_numbers
+} from '../to_csv';
 
 
 
@@ -44,13 +49,40 @@ describe('to_csv', () => {
     'a,"b""""c",d\r\n1,2,3',
   ) );
 
-  test("with quoter", () => expect(
+  test("quote_always", () => expect(
     to_csv(
       [['a','b','c'],['1','2','3']],
       {quoter: quote_always}
     )
   ).toBe(
     '"a","b","c"\r\n"1","2","3"',
+  ) );
+
+  test("quote_minimal", () => expect(
+    to_csv(
+      [['a','b,c','d'],['1','2','3']],
+      {quoter: quote_minimal}
+    )
+  ).toBe(
+    'a,"b,c",d\r\n1,2,3',
+  ) );
+
+  test("quote_strict_nl", () => expect(
+    to_csv(
+      [['a','\r','b'],['1','\n','2']],
+      {quoter: quote_strict_nl}
+    )
+  ).toBe(
+    'a,\r,b\r\n1,\n,2',
+  ) );
+
+  test("quote_except_numbers", () => expect(
+    to_csv(
+      [['a','b','c'],['1','2','3']],
+      {quoter: quote_except_numbers}
+    )
+  ).toBe(
+    '"a","b","c"\r\n1,2,3',
   ) );
 
   test("with headers", () => expect(

@@ -9,28 +9,6 @@ type CSV       = HeaderCSV | BareCSV;
 
 
 
-enum HeaderMode {
-
-  none   = 'none',
-  index  = 'index',
-  number = 'number',
-  first  = 'first'
-
-}
-
-
-
-enum QuoteWhen {
-
-  minimal        = 'minimal',
-  always         = 'always',
-  except_numbers = 'except_numbers',
-  strict_nl      = 'strict_nl'
-
-}
-
-
-
 interface StringifyOptions {
 
   headers?                : Row | false,
@@ -46,6 +24,5 @@ interface StringifyOptions {
 export { 
   Cell, Row,
   BareCSV, HeaderCSV, CSV, 
-  HeaderMode, QuoteWhen, 
   StringifyOptions 
 };
