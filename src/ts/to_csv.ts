@@ -7,14 +7,9 @@
 
 import {
 
-  item,
-  row,
-  doc,
-
-  header_mode,
-  quote_when,
-
-  stringify_options
+  Row,
+  CSV,
+  StringifyOptions
 
 } from './csv_types';
 
@@ -161,7 +156,7 @@ function quote_except_numbers(cell: string): string {
  *
  */
 
-function stringify_make_row(rowdata: row, quoter: (s: string) => string, field_separator: string): string {
+function stringify_make_row(rowdata: Row, quoter: (s: string) => string, field_separator: string): string {
 
   return rowdata.map(quoter)
                 .join(field_separator);
@@ -221,7 +216,7 @@ function stringify_make_row(rowdata: row, quoter: (s: string) => string, field_s
  */
 
 function to_csv(
-  data: doc,
+  data: any[][],
 
   {
     headers                = false,
@@ -229,7 +224,7 @@ function to_csv(
     field_separator        = ',',
     row_separator          = '\r\n',
     trailing_row_separator = false
-  }: stringify_options = {}
+  }: StringifyOptions = {}
 )
 
 {
@@ -237,7 +232,7 @@ function to_csv(
   const header = headers? (stringify_make_row(headers, quoter, field_separator) + row_separator)
                         : '';
 
-  const body   = data.map( (hd: row): string => stringify_make_row(hd, quoter, field_separator) )
+  const body   = data.map( (hd: Row): string => stringify_make_row(hd, quoter, field_separator) )
                      .join(row_separator);
 
   return header + body + (trailing_row_separator? row_separator : '');

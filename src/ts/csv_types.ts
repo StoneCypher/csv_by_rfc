@@ -1,13 +1,15 @@
 
-type item = string;
-type row  = item[];
-type doc  = row[];
+type Cell      = string;
+type Row       = Cell[];
+type BareCSV   = Row[];
+type HeaderCSV = { headers?: Row; data: BareCSV };
+type CSV       = HeaderCSV | BareCSV;
 
 
 
 
 
-enum header_mode {
+enum HeaderMode {
 
   none   = 'none',
   index  = 'index',
@@ -18,7 +20,7 @@ enum header_mode {
 
 
 
-enum quote_when {
+enum QuoteWhen {
 
   minimal        = 'minimal',
   always         = 'always',
@@ -29,17 +31,21 @@ enum quote_when {
 
 
 
-interface stringify_options {
+interface StringifyOptions {
 
-  headers?                : row | false,
-  quoter?                 : (s: string) => string,
+  headers?                : Row | false,
+  quoter?                 : (s: Cell) => Cell,
   field_separator?        : string,
   row_separator?          : string,
   trailing_row_separator? : boolean
 
-// , consumer: function
 }
 
 
 
-export { item, row, doc, header_mode, quote_when, stringify_options };
+export { 
+  Cell, Row,
+  BareCSV, HeaderCSV, CSV, 
+  HeaderMode, QuoteWhen, 
+  StringifyOptions 
+};

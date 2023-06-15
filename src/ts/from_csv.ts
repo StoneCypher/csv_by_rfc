@@ -1,11 +1,19 @@
 
+import { Cell, Row, BareCSV, HeaderCSV, CSV } from './csv_types';
+
+
+
+
+
 type csv_options = {
 
-  separator?   : string;
-  quote?       : string;
-  embed_quote? : string;
-  newline?     : string;
-  has_headers? : boolean;
+  separator?      : string;
+  quote?          : string;
+  embed_quote?    : string;
+  newline?        : string;
+  parse_numbers?  : boolean;
+  parse_booleans? : boolean;
+  has_headers?    : boolean;
 
 };
 
@@ -13,24 +21,11 @@ type csv_options = {
 
 
 
-type ParsedCsvWoHeaders = string[][];
-
-type ParsedCsvWHeaders = {
-  headers : string[];
-  data    : ParsedCsvWoHeaders;
-};
-
-type ParsedCSV = ParsedCsvWHeaders | ParsedCsvWoHeaders;
-
-
-
-
-
-function from_csv(uCSV: string, uOptions: csv_options = {}): ParsedCSV {
+function from_csv(uCSV: string, uOptions: csv_options = {}): CSV {
   
   const separator   = uOptions.separator   ?? ',',
         quote       = uOptions.quote       ?? '"',
-        embed_quote = uOptions.quote       ?? (quote + quote),
+        embed_quote = uOptions.embed_quote ?? (quote + quote),
         newline     = uOptions.newline     ?? '\r\n',
         hasHeaders  = uOptions.has_headers ?? false,
         curMax      = uCSV.length,
@@ -43,9 +38,9 @@ function from_csv(uCSV: string, uOptions: csv_options = {}): ParsedCSV {
       newCell    : boolean = true,
       inQuote    : boolean = false,
       afterClose : boolean = false,
-      output     : any[][] = [],
-      row        : any[]   = [],
-      cell       : string  = '';
+      output     : BareCSV = [],
+      row        : Row     = [],
+      cell       : Cell    = '';
 
   while (cursor < curMax) {
 
@@ -107,6 +102,10 @@ function from_csv(uCSV: string, uOptions: csv_options = {}): ParsedCSV {
         afterClose = false;
 
       } else {
+
+        if (afterClose) { 
+          throw new Error(`cannot have data after close quote, before separator, at ${cursor}`); 
+        }
 
         cell      += uCSV.charAt(cursor);
         newCell    = false;
