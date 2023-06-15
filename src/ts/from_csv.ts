@@ -34,7 +34,7 @@ function from_csv(uCSV: string, uOptions: csv_options = {}): CSV {
         qtLen       = quote.length,
         eqLen       = embed_quote.length;
 
-  if (quote.find(embed_quote)) {
+  if (quote.indexOf(embed_quote) > -1) {
     throw new Error('.embed_quote cannot match or be a subset of .quote');
   }
 

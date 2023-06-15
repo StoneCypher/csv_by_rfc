@@ -199,10 +199,10 @@ describe('from_csv negative tests', () => {
 
   test("bad embed quote - matching", () =>
     expect( () => from_csv('a', { quote: "zz", embed_quote: "zz" }) )
-      .toThrow();
+      .toThrow() );
 
   test("bad embed quote - subset", () =>
     expect( () => from_csv('a', { quote: "zzz", embed_quote: "zz" }) )
-      .toThrow();
+      .toThrow() );
 
 });
