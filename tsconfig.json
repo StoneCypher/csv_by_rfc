@@ -6,7 +6,8 @@
     "sourceMap"        : true,
     "outDir"           : "./build/",
     "alwaysStrict"     : true,
-    "strict"           : true
+    "strict"           : true,
+    "lib"              : ["es2021"]
   },
   "include": [
     "src/ts/**/*.ts"

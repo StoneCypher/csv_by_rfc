@@ -1,23 +1,11 @@
-
+"use strict";
 /***
  *
  * `to_csv.ts` contains CSV output routines.
  *
  */
-
-import {
-
-  Cell,
-  Row,
-  CSV,
-  StringifyOptions
-
-} from './csv_types';
-
-
-
-
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.quote_except_numbers = exports.quote_strict_nl = exports.quote_minimal = exports.quote_always = exports.quoters = exports.quote_when_contains = exports.quote_frame = exports.stringify_make_row = exports.to_csv = void 0;
 /***
  *
  * Perform a quoting
@@ -27,16 +15,10 @@ import {
  * @returns The string provided, quoted
  *
  */
-
-function quote_frame(s: string, quot: string, emquot: string): string {
-  return `${quot}${s.toString().replaceAll(quot,emquot)}${quot}`;
+function quote_frame(s, quot, emquot) {
+    return `${quot}${s.toString().replaceAll(quot, emquot)}${quot}`;
 }
-
-
-
-
-
-
+exports.quote_frame = quote_frame;
 /***
  *
  * Quoting metafunction that handles quoting given an array of triggers
@@ -47,19 +29,11 @@ function quote_frame(s: string, quot: string, emquot: string): string {
  * @returns The string provided, quoted when containing anything from `conts`
  *
  */
-
-function quote_when_contains(s: string, conts: Array<string>, quot: string, emquot: string): string {
-
-  const hasAnyItem = conts.some( (d: string) => s.includes(d) );
-  return hasAnyItem? quote_frame(s, quot, emquot) : s;
-
+function quote_when_contains(s, conts, quot, emquot) {
+    const hasAnyItem = conts.some((d) => s.includes(d));
+    return hasAnyItem ? quote_frame(s, quot, emquot) : s;
 }
-
-
-
-
-
-
+exports.quote_when_contains = quote_when_contains;
 /***
  *
  * Quote every cell
@@ -69,16 +43,10 @@ function quote_when_contains(s: string, conts: Array<string>, quot: string, emqu
  * @returns The string provided, quoted
  *
  */
-
-function quote_always(c: string, _sep: string = ",", _nl: string = "\r\n", quot: string = '"', emquot: string = '""'): string {
-  return quote_frame(c, quot, emquot);
+function quote_always(c, _sep = ",", _nl = "\r\n", quot = '"', emquot = '""') {
+    return quote_frame(c, quot, emquot);
 }
-
-
-
-
-
-
+exports.quote_always = quote_always;
 /***
  *
  * Quote only that which needs to be quoted (strings containing `",\r\n`)
@@ -88,20 +56,12 @@ function quote_always(c: string, _sep: string = ",", _nl: string = "\r\n", quot:
  * @returns The string provided, quoted when containing `"`, `,`, `\r`, or `\n`
  *
  */
-
-function quote_minimal(c: string, sep: string = ",", nl: string = "\r\v", quot: string = '"', emquot: string = '""'): string {
-
-  const uitems : (string | undefined)[] = [sep, nl, quot, emquot, '\r', '\n'],  // adding \r and \n isn't strictly correct, but most parsers break if strays aren't quoted, despite the rfc
-        items  : string[]               = uitems.filter( (x: string | undefined) => x !== undefined) as string[];
-
-  return quote_when_contains(c, items, quot, emquot);
+function quote_minimal(c, sep = ",", nl = "\r\v", quot = '"', emquot = '""') {
+    const uitems = [sep, nl, quot, emquot, '\r', '\n'], // adding \r and \n isn't strictly correct, but most parsers break if strays aren't quoted, despite the rfc
+    items = uitems.filter((x) => x !== undefined);
+    return quote_when_contains(c, items, quot, emquot);
 }
-
-
-
-
-
-
+exports.quote_minimal = quote_minimal;
 /***
  *
  * Quote only that which needs to be quoted.  Pass carriage returns and newlines individually without quoting (which is
@@ -112,15 +72,10 @@ function quote_minimal(c: string, sep: string = ",", nl: string = "\r\v", quot: 
  * @returns The string provided, quoted when containing `"`, `,`, or `\r\n`
  *
  */
-
-function quote_strict_nl(c: string, sep: string = ',', _nl: string = '\r\n', quot: string = '"', emquot: string = '""'): string {
-  return quote_when_contains(c, ['\r\n', sep, quot, emquot], quot, emquot);
+function quote_strict_nl(c, sep = ',', _nl = '\r\n', quot = '"', emquot = '""') {
+    return quote_when_contains(c, ['\r\n', sep, quot, emquot], quot, emquot);
 }
-
-
-
-
-
+exports.quote_strict_nl = quote_strict_nl;
 /***
  *
  * Quote things which do not appear to be numbers (that is, which contain characters other than 0-9, period, + and -.)
@@ -130,15 +85,10 @@ function quote_strict_nl(c: string, sep: string = ',', _nl: string = '\r\n', quo
  * @returns The string provided, quoted if not believed to be a number
  *
  */
-
-function quote_except_numbers(cell: string, _sep: string = ',', _nl: string = '\r\n', quot: string = '"', emquot: string = '""'): string {
-  return (!isNaN(parseFloat(cell)))? cell : quote_frame(cell, quot, emquot);
+function quote_except_numbers(cell, _sep = ',', _nl = '\r\n', quot = '"', emquot = '""') {
+    return (!isNaN(parseFloat(cell))) ? cell : quote_frame(cell, quot, emquot);
 }
-
-
-
-
-
+exports.quote_except_numbers = quote_except_numbers;
 /***
  *
  * Makes a single CSV document's row.
@@ -160,18 +110,11 @@ function quote_except_numbers(cell: string, _sep: string = ',', _nl: string = '\
  * @returns The row as a CSV substring
  *
  */
-
-function stringify_make_row(rowdata: Row, quoter: (s: string, sep: string, nl: string, quot: string, emquot: string) => string, separator: string, newline: string, quote: string, emquote: string): string {
-
-  return rowdata.map((r: Cell) => quoter(r, separator, newline, quote, emquote))
-                .join(separator);
-
+function stringify_make_row(rowdata, quoter, separator, newline, quote, emquote) {
+    return rowdata.map((r) => quoter(r, separator, newline, quote, emquote))
+        .join(separator);
 }
-
-
-
-
-
+exports.stringify_make_row = stringify_make_row;
 /***
  *
  * # Main method
@@ -218,63 +161,19 @@ function stringify_make_row(rowdata: Row, quoter: (s: string, sep: string, nl: s
  * @returns The dataset as a CSV string
  *
  */
-
-function to_csv(
-  data: any[][],
-
-  {
-    headers     = false,
-    quoter      = quote_minimal,
-    separator   = ',',
-    newline     = '\r\n',
-    quote       = '"',
-    embed_quote = '""'
-  }: StringifyOptions = {}
-)
-
-{
-
-  const header = headers? (stringify_make_row(headers, quoter, separator, newline, quote, embed_quote) + newline)
-                        : '';
-
-  const body   = data.map( (hd: Row): string => stringify_make_row(hd, quoter, separator, newline, quote, embed_quote) )
-                     .join(newline);
-
-  return header + body;
-
+function to_csv(data, { headers = false, quoter = quote_minimal, separator = ',', newline = '\r\n', quote = '"', embed_quote = '""' } = {}) {
+    const header = headers ? (stringify_make_row(headers, quoter, separator, newline, quote, embed_quote) + newline)
+        : '';
+    const body = data.map((hd) => stringify_make_row(hd, quoter, separator, newline, quote, embed_quote))
+        .join(newline);
+    return header + body;
 }
-
-
-
-
-
+exports.to_csv = to_csv;
 const quoters = {
-
-  minimal        : quote_minimal,
-  always         : quote_always,
-  except_numbers : quote_except_numbers,
-  strict_nl      : quote_strict_nl
-
+    minimal: quote_minimal,
+    always: quote_always,
+    except_numbers: quote_except_numbers,
+    strict_nl: quote_strict_nl
 };
-
-
-
-
-
-export {
-
-  to_csv,
-
-  stringify_make_row,
-
-  quote_frame,
-
-  quote_when_contains,
-
-  quoters,
-    quote_always,
-    quote_minimal,
-    quote_strict_nl,
-    quote_except_numbers
-
-};
+exports.quoters = quoters;
+//# sourceMappingURL=to_csv.js.map
