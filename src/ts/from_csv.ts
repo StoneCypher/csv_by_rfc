@@ -34,6 +34,10 @@ function from_csv(uCSV: string, uOptions: csv_options = {}): CSV {
         qtLen       = quote.length,
         eqLen       = embed_quote.length;
 
+  if (quote.find(embed_quote)) {
+    throw new Error('.embed_quote cannot match or be a subset of .quote');
+  }
+
   let cursor     : number  = 0,
       newCell    : boolean = true,
       inQuote    : boolean = false,
