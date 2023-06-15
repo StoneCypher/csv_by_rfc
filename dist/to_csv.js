@@ -101,16 +101,16 @@ exports.quote_except_numbers = quote_except_numbers;
  * // returns '"4":"5":"6"'
  * ```
  *
- * @param rowdata         The data underlying this row only
- * @param quoter          A function responsible for making decisions about quoting the cell's data
- * @param field_separator The string used inbetween cells
+ * @param rowdata   The data underlying this row only
+ * @param quoter    A function responsible for making decisions about quoting the cell's data
+ * @param separator The string used inbetween cells
  *
  * @returns The row as a CSV substring
  *
  */
-function stringify_make_row(rowdata, quoter, field_separator) {
+function stringify_make_row(rowdata, quoter, separator) {
     return rowdata.map(quoter)
-        .join(field_separator);
+        .join(separator);
 }
 exports.stringify_make_row = stringify_make_row;
 /***
@@ -150,19 +150,19 @@ exports.stringify_make_row = stringify_make_row;
  *
  * whargarbl todo
  *
- * @param data             The CSV's dataset
- * @param headers          An array of strings to be used as the header row
- * @param quoter           A function to determine how and when to quote individual cells
- * @param field_separator  What string to use inbetween cells
- * @param newline          What string to use inbetween rows
+ * @param data       The CSV's dataset
+ * @param headers    An array of strings to be used as the header row
+ * @param quoter     A function to determine how and when to quote individual cells
+ * @param separator  What string to use inbetween cells
+ * @param newline    What string to use inbetween rows
  *
  * @returns The dataset as a CSV string
  *
  */
-function to_csv(data, { headers = false, quoter = quote_minimal, field_separator = ',', newline = '\r\n' } = {}) {
-    const header = headers ? (stringify_make_row(headers, quoter, field_separator) + newline)
+function to_csv(data, { headers = false, quoter = quote_minimal, separator = ',', newline = '\r\n' } = {}) {
+    const header = headers ? (stringify_make_row(headers, quoter, separator) + newline)
         : '';
-    const body = data.map((hd) => stringify_make_row(hd, quoter, field_separator))
+    const body = data.map((hd) => stringify_make_row(hd, quoter, separator))
         .join(newline);
     return header + body;
 }
