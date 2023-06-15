@@ -97,7 +97,7 @@ describe('to_csv', () => {
   test("with custom field separator", () => expect(
     to_csv(
       [['a','b','c'],['1','2','3']],
-      { field_separator: ';' }
+      { separator: ';' }
     )
   ).toBe(
     'a;b;c\r\n1;2;3',
@@ -115,10 +115,10 @@ describe('to_csv', () => {
   test("with everything", () => expect(
     to_csv(
       [['a','b','c'],['1','2','3']],
-      { quoter           : quote_always,
-        headers          : ['X','Y','Z'],
-        field_separator  : ';',
-        newline          : '---'
+      { quoter     : quote_always,
+        headers    : ['X','Y','Z'],
+        separator  : ';',
+        newline    : '---'
       }
     )
   ).toBe(
