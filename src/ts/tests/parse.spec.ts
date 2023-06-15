@@ -31,6 +31,12 @@ describe('basic from_csv', () => {
     [['ab','cd,e"f','gh'],['12','34','56']]
   ) );
 
+  test("empty:", () => expect(
+    from_csv(''),
+  ).toEqual(
+    []
+  ) );
+
 });
 
 
@@ -87,6 +93,12 @@ describe('headers', () => {
     from_csv('ha,b,c\r\nh1,2,3\r\nh2,4,5', { has_headers: true }),
   ).toEqual(
     { headers: ['ha','b','c'], data: [ ['h1','2','3'], ['h2','4','5'] ] }
+  ) );
+
+  test("headers when empty:", () => expect(
+    from_csv('', { has_headers: true }),
+  ).toEqual(
+    { headers: [], data: [] }
   ) );
 
 });
