@@ -22,7 +22,6 @@ import {
 
 
 
-
 /***
  *
  * Perform a quoting
