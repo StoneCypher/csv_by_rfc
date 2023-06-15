@@ -14,8 +14,7 @@ interface StringifyOptions {
   headers?                : Row | false,
   quoter?                 : (s: Cell) => Cell,
   field_separator?        : string,
-  row_separator?          : string,
-  trailing_row_separator? : boolean
+  row_separator?          : string
 
 }
 

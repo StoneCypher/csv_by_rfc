@@ -155,17 +155,16 @@ exports.stringify_make_row = stringify_make_row;
  * @param quoter                 A function to determine how and when to quote individual cells
  * @param field_separator        What string to use inbetween cells
  * @param row_separator          What string to use inbetween rows
- * @param trailing_row_separator Whether to put a row separator after the last line
  *
  * @returns The dataset as a CSV string
  *
  */
-function to_csv(data, { headers = false, quoter = quote_minimal, field_separator = ',', row_separator = '\r\n', trailing_row_separator = false } = {}) {
+function to_csv(data, { headers = false, quoter = quote_minimal, field_separator = ',', row_separator = '\r\n' } = {}) {
     const header = headers ? (stringify_make_row(headers, quoter, field_separator) + row_separator)
         : '';
     const body = data.map((hd) => stringify_make_row(hd, quoter, field_separator))
         .join(row_separator);
-    return header + body + (trailing_row_separator ? row_separator : '');
+    return header + body;
 }
 exports.to_csv = to_csv;
 const quoters = {

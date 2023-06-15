@@ -112,27 +112,17 @@ describe('to_csv', () => {
     'a,b,c---1,2,3',
   ) );
 
-  test("with trailing row separator", () => expect(
-    to_csv(
-      [['a','b','c'],['1','2','3']],
-      {trailing_row_separator: true}
-    )
-  ).toBe(
-    'a,b,c\r\n1,2,3\r\n',
-  ) );
-
   test("with everything", () => expect(
     to_csv(
       [['a','b','c'],['1','2','3']],
       { quoter                 : quote_always,
         headers                : ['X','Y','Z'],
         field_separator        : ';',
-        row_separator          : '---',
-        trailing_row_separator : true
+        row_separator          : '---'
       }
     )
   ).toBe(
-    '"X";"Y";"Z"---"a";"b";"c"---"1";"2";"3"---',
+    '"X";"Y";"Z"---"a";"b";"c"---"1";"2";"3"',
   ) );
 
 });

@@ -209,7 +209,6 @@ function stringify_make_row(rowdata: Row, quoter: (s: string) => string, field_s
  * @param quoter                 A function to determine how and when to quote individual cells
  * @param field_separator        What string to use inbetween cells
  * @param row_separator          What string to use inbetween rows
- * @param trailing_row_separator Whether to put a row separator after the last line
  *
  * @returns The dataset as a CSV string
  *
@@ -222,8 +221,7 @@ function to_csv(
     headers                = false,
     quoter                 = quote_minimal,
     field_separator        = ',',
-    row_separator          = '\r\n',
-    trailing_row_separator = false
+    row_separator          = '\r\n'
   }: StringifyOptions = {}
 )
 
@@ -235,7 +233,7 @@ function to_csv(
   const body   = data.map( (hd: Row): string => stringify_make_row(hd, quoter, field_separator) )
                      .join(row_separator);
 
-  return header + body + (trailing_row_separator? row_separator : '');
+  return header + body;
 
 }
 
