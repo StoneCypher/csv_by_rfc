@@ -1,6 +1,6 @@
 {
   "name": "csv_by_rfc",
-  "version": "0.17.2",
+  "version": "0.17.3",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; typed in typescript",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "@types/jest": "^29.5.2",
     "@types/node": "^20.3.1",
     "jest": "^29.5.0",
+    "pegjs": "^0.10.0",
     "rimraf": "^2.7.1",
     "ts-jest": "^29.1.0",
     "typedoc": "^0.24.8",
