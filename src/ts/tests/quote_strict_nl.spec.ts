@@ -1,5 +1,5 @@
 
-import {quote_strict_nl} from '../to_csv';
+import { quote_strict_nl } from '../to_csv';
 
 
 

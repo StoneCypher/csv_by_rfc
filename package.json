@@ -33,9 +33,9 @@
   "author": "John Haugeland <stonecypher@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/StoneCypher/csv_4180/issues"
+    "url": "https://github.com/StoneCypher/csv_by_rfc/issues"
   },
-  "homepage": "https://github.com/StoneCypher/csv_4180#readme",
+  "homepage": "https://github.com/StoneCypher/csv_by_rfc#readme",
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "jest": "^27.3.1",

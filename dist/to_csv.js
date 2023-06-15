@@ -1,7 +1,7 @@
 "use strict";
 /***
  *
- * Ok
+ * `to_csv.ts` contains CSV output routines.
  *
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -92,7 +92,7 @@ exports.quote_except_numbers = quote_except_numbers;
  * Makes a single CSV document's row.
  *
  * ```
- * import { stringify_make_row, quote_minimal, quote_always } from 'csv_4180';
+ * import { stringify_make_row, quote_minimal, quote_always } from 'csv_by_rfc';
  *
  * stringify_make_row([1,2,3], quote_minimal, ",");
  * // returns '1,2,3'
@@ -127,7 +127,7 @@ exports.stringify_make_row = stringify_make_row;
  * data, like so:
  *
  * ```
- * import { to_csv } from 'csv_4180';
+ * import { to_csv } from 'csv_by_rfc';
  *
  * const data = [ ['ace', 'deuce', 'tres'], [1, 2, 3] ],
  *       csv  = to_csv(data);
@@ -140,7 +140,7 @@ exports.stringify_make_row = stringify_make_row;
  * Of course, much of the purpose of a module like this is to make sure that the gross bits have been properly handled:
  *
  * ```
- * import { to_csv } from 'csv_4180';
+ * import { to_csv } from 'csv_by_rfc';
  *
  * const data = [ ['ace', 'deuce'], [1, 2], ['a"b', 'c\r\nd'] ];
  * console.log( to_csv(data) );  // 'ace,deuce\r\n1,2\r\n"a""b","c\r\nd"'

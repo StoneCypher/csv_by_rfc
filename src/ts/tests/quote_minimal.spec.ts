@@ -1,5 +1,5 @@
 
-import {quote_minimal} from '../to_csv';
+import { quote_minimal } from '../to_csv';
 
 
 

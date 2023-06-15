@@ -1,5 +1,5 @@
 
-import {stringify_make_row, quote_minimal, quote_always} from '../to_csv';
+import { stringify_make_row, quote_minimal, quote_always } from '../to_csv';
 
 
 

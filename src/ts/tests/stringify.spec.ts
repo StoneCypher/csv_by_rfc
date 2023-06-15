@@ -1,5 +1,5 @@
 
-import {to_csv, quote_always} from '../to_csv';
+import { to_csv, quote_always } from '../to_csv';
 
 
 

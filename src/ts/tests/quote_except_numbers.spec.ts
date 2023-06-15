@@ -1,5 +1,5 @@
 
-import {quote_except_numbers} from '../to_csv';
+import { quote_except_numbers } from '../to_csv';
 
 
 
