@@ -150,20 +150,20 @@ exports.stringify_make_row = stringify_make_row;
  *
  * whargarbl todo
  *
- * @param data                   The CSV's dataset
- * @param headers                An array of strings to be used as the header row
- * @param quoter                 A function to determine how and when to quote individual cells
- * @param field_separator        What string to use inbetween cells
- * @param row_separator          What string to use inbetween rows
+ * @param data             The CSV's dataset
+ * @param headers          An array of strings to be used as the header row
+ * @param quoter           A function to determine how and when to quote individual cells
+ * @param field_separator  What string to use inbetween cells
+ * @param newline          What string to use inbetween rows
  *
  * @returns The dataset as a CSV string
  *
  */
-function to_csv(data, { headers = false, quoter = quote_minimal, field_separator = ',', row_separator = '\r\n' } = {}) {
-    const header = headers ? (stringify_make_row(headers, quoter, field_separator) + row_separator)
+function to_csv(data, { headers = false, quoter = quote_minimal, field_separator = ',', newline = '\r\n' } = {}) {
+    const header = headers ? (stringify_make_row(headers, quoter, field_separator) + newline)
         : '';
     const body = data.map((hd) => stringify_make_row(hd, quoter, field_separator))
-        .join(row_separator);
+        .join(newline);
     return header + body;
 }
 exports.to_csv = to_csv;

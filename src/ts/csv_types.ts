@@ -11,10 +11,10 @@ type CSV       = HeaderCSV | BareCSV;
 
 interface StringifyOptions {
 
-  headers?                : Row | false,
-  quoter?                 : (s: Cell) => Cell,
-  field_separator?        : string,
-  row_separator?          : string
+  headers?          : Row | false,
+  quoter?           : (s: Cell) => Cell,
+  field_separator?  : string,
+  newline?          : string
 
 }
 
