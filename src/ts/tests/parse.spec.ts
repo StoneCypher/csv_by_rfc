@@ -37,6 +37,12 @@ describe('basic from_csv', () => {
     [ [""] ]
   ) );
 
+  test("one row: a,b,c", () => expect(
+    from_csv('a,b,c\r\n1,2,3'),
+  ).toEqual(
+    [['a','b','c'],['1','2','3']]
+  ) );
+
   test("comma:", () => expect(
     from_csv(','),
   ).toEqual(
@@ -137,7 +143,51 @@ describe('headers', () => {
 
 
 
+describe('whitespace', () => {
+
+  test("leading", () => expect(
+    from_csv('a, b,c\r\n1,2,3'),
+  ).toEqual(
+    [['a',' b','c'],['1','2','3']]
+  ) );
+
+  test("following", () => expect(
+    from_csv('a,b ,c\r\n1,2,3'),
+  ).toEqual(
+    [['a','b ','c'],['1','2','3']]
+  ) );
+
+  test("following cell", () => expect(
+    from_csv('a,b,c,d\r\n1,2,3,'),
+  ).toEqual(
+    [['a','b','c','d'],['1','2','3','']]
+  ) );
+
+  test("preceding cell", () => expect(
+    from_csv('a,b,c,d\r\n,1,2,3'),
+  ).toEqual(
+    [['a','b','c','d'],['','1','2','3']]
+  ) );
+
+});
+
+
+
+
+
 describe('from_csv negative tests', () => {
+
+  test("rows must be same length", () => 
+  	expect( () => from_csv('a,b,c,d\r\n1,2,3') )
+      .toThrow() );
+
+  test("rows must be same length as headers", () => 
+  	expect( () => from_csv('a,b,c,d\r\n1,2,3\r\n4,5,6', { has_headers: true }) )
+      .toThrow() );
+
+  test("data before quote", () => 
+  	expect( () => from_csv('ab,"cd",e"fg"\r\n1,2,3') )
+      .toThrow() );
 
   test("data before quote", () => 
   	expect( () => from_csv('ab,"cd",e"fg"\r\n1,2,3') )

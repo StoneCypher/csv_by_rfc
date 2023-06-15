@@ -1,6 +1,6 @@
 {
   "name": "csv_by_rfc",
-  "version": "0.17.8",
+  "version": "0.17.9",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; typed in typescript",
   "main": "index.js",
   "scripts": {

@@ -121,6 +121,13 @@ function from_csv(uCSV: string, uOptions: csv_options = {}): CSV {
   row.push(cell);
   output.push(row);
 
+  // assert all rows, and if appropriate headers, have same length
+  output.map( (eachrow, e) => {
+    if (eachrow.length !== output[0].length) {
+      throw new Error(`Row ${e} is of wrong length`);
+    }
+  });
+
   if (hasHeaders) {
     const headers: string[] = output.shift() !; // typechecker expects undef from .shift, but .push was prev line, so impossible to test; explicitly opt out of undef test
     return { 
