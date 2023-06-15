@@ -122,8 +122,13 @@ function from_csv(uCSV: string, uOptions: csv_options = {}): CSV {
   output.push(row);
 
   if (hasHeaders) {
-    const headers: string[] | undefined = output.shift();
-    return { headers: headers ?? [], data: output };
+    const headers: string[] = output.shift() !; // typechecker expects undef from .shift, but .push was prev line, so impossible to test; explicitly opt out of undef test
+    return { 
+      headers: headers, 
+      data: output.length === 0 
+        ? [ [""] ] 
+        : output 
+      };
   } else {
     return output;
   }

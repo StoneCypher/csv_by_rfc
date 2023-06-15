@@ -34,7 +34,13 @@ describe('basic from_csv', () => {
   test("empty:", () => expect(
     from_csv(''),
   ).toEqual(
-    []
+    [ [""] ]
+  ) );
+
+  test("comma:", () => expect(
+    from_csv(','),
+  ).toEqual(
+    [ ["",""] ]
   ) );
 
 });
@@ -98,7 +104,31 @@ describe('headers', () => {
   test("headers when empty:", () => expect(
     from_csv('', { has_headers: true }),
   ).toEqual(
-    { headers: [], data: [] }
+    { headers: [""], data: [ [""] ] }
+  ) );
+
+  test("headers when just linebreak:", () => expect(
+    from_csv('\r\n', { has_headers: true }),
+  ).toEqual(
+    { headers: [""], data: [ [""] ] }
+  ) );
+
+  test("headers when just header and linebreak:", () => expect(
+    from_csv('a\r\n', { has_headers: true }),
+  ).toEqual(
+    { headers: ["a"], data: [ [""] ] }
+  ) );
+
+  test("headers when just linebreak and data:", () => expect(
+    from_csv('\r\na', { has_headers: true }),
+  ).toEqual(
+    { headers: [""], data: [ ["a"] ] }
+  ) );
+
+  test("headers when commas:", () => expect(
+    from_csv(',\r\n,', { has_headers: true }),
+  ).toEqual(
+    { headers: ["",""], data: [ ["",""] ] }
   ) );
 
 });
