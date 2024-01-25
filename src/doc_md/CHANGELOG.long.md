@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-84 merges
+85 merges
 
 
 
@@ -14,6 +14,21 @@ Published tags:
 
 
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 1/25/2024 12:23:42 PM
+
+Commit [b0f6e2fa1f73d10adb6f597ecb24e1b62ceccd31](https://github.com/StoneCypher/jssm/commit/b0f6e2fa1f73d10adb6f597ecb24e1b62ceccd31)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * working rollup pass
 
 
 

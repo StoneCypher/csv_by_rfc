@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-84 merges; Changlogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+85 merges; Changlogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,21 @@ Published tags:
 
 
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 1/25/2024 12:23:42 PM
+
+Commit [b0f6e2fa1f73d10adb6f597ecb24e1b62ceccd31](https://github.com/StoneCypher/jssm/commit/b0f6e2fa1f73d10adb6f597ecb24e1b62ceccd31)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * working rollup pass
 
 
 
@@ -162,18 +177,3 @@ Commit [dded79bd95bb850983a925a81289da2269f03d98](https://github.com/StoneCypher
 Author: `John Haugeland <stonecypher@gmail.com>`
 
   * stoch test reveals incorrect desire on baseline; fixing
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 6/14/2023 9:56:36 PM
-
-Commit [e9e49244ffd4178695460ee1218968927f1d4262](https://github.com/StoneCypher/jssm/commit/e9e49244ffd4178695460ee1218968927f1d4262)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * prevent nonsense embed quotes
