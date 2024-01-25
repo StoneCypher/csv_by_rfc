@@ -1,6 +1,6 @@
 {
   "name": "csv_by_rfc",
-  "version": "0.19.0",
+  "version": "0.19.1",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; typed in typescript",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "unit": "jest --color --verbose",
     "stoch": "jest --color --verbose --config=jest.stoch.config.js",
     "test": "npm run unit && npm run stoch",
-    "dist": "mkdir dist && cp build/to_csv.* dist && cp build/from_csv.* dist && cp build/index.* dist",
+    "dist": "cp build/to_csv.* dist && cp build/from_csv.* dist && cp build/index.* dist",
     "doc": "typedoc --out docs/docs/ src/ts/index.ts && cp src/misc/.nojekyll docs",
     "changelog": "rm -f CHANGELOG.* && rm -f ./src/doc_md/CHANGELOG.* && better_git_changelog -b && cp CHANGELOG.* ./src/doc_md/",
     "build": "npm run clean && npm run test && npm run typescript && npm run doc && npm run dist"
