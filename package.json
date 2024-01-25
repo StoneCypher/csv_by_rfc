@@ -1,15 +1,15 @@
 {
   "name": "csv_by_rfc",
-  "version": "0.17.12",
+  "version": "0.18.0",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; typed in typescript",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "clean": "rimraf -f build && rimraf -f dist && rimraf -f docs",
+    "clean": "rimraf -f build && rimraf -f dist && rimraf -f docs && mkdir dist && cd dist && mkdir es6 && cd .. && mkdir docs",
     "typescript": "tsc",
     "unit": "jest --color --verbose",
     "stoch": "jest --color --verbose --config=jest.stoch.config.js",
     "test": "npm run unit && npm run stoch",
-    "dist": "mkdir dist && cp build/to_csv.* dist",
+    "dist": "mkdir dist && cp build/to_csv.* dist && cp build/from_csv.* dist && cp build/index.* dist",
     "doc": "typedoc --out docs/docs/ src/ts/index.ts && cp src/misc/.nojekyll docs",
     "build": "npm run clean && npm run test && npm run typescript && npm run doc && npm run dist"
   },
