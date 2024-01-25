@@ -1,6 +1,6 @@
 {
   "name": "csv_by_rfc",
-  "version": "0.20.0",
+  "version": "0.20.1",
   "description": "CSV according to RFC 4180.  Everyone else's are weirdly wrong.  Heavily tested; typed in typescript",
   "type": "module",
   "module": "dist/esm/index.mjs",
@@ -13,7 +13,7 @@
     "test": "npm run unit && npm run stoch",
     "rollup": "rollup -c",
     "changelog": "rm -f CHANGELOG.* && rm -f ./src/doc_md/CHANGELOG.* && better_git_changelog -b && cp CHANGELOG.* ./src/doc_md/",
-    "doc": "typedoc --out docs/docs/ src/ts/index.ts && cp src/misc/.nojekyll docs",
+    "doc": "typedoc --out docs/docs/ src/ts/index.ts && cp src/misc/.nojekyll docs && cp README.md ./docs/index.md",
     "build": "npm run clean && npm run test && npm run typescript && npm run rollup && npm run changelog && npm run doc"
   },
   "repository": {

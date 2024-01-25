@@ -220,7 +220,7 @@ function stringify_make_row(rowdata: Row, quoter: (s: string, sep: string, nl: s
  */
 
 function to_csv(
-  data: any[][],
+  data: Cell[][],
 
   {
     headers     = false,

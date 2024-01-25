@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-85 merges
+86 merges
 
 
 
@@ -14,6 +14,21 @@ Published tags:
 
 
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 1/25/2024 12:26:45 PM
+
+Commit [195bb6a323aa9bef20eb6c033bff82f7c49206c3](https://github.com/StoneCypher/jssm/commit/195bb6a323aa9bef20eb6c033bff82f7c49206c3)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix a few package details
 
 
 
